@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <meta charset="UTF-8">
+    <title>{% block title %}Viberr{% endblock %}</title>
+    {% load staticfiles %}
+    <link rel="shortcut icon" type="image/png" href="{%  static 'favicon.ico' %}"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Satisfy' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="{% static 'music/style.css' %}"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+
+        <!-- Header -->
+        <div class="navbar-header">
+        <a class="navbar-brand" href="{% url 'places:login'%}">Guider</a>
+        </div>
+
+        <!-- Items -->
+        <div class="collapse navbar-collapse" id="topNavBar">
+
+            <ul class="nav navbar-nav pull-right">
+                <li class="{% block albums_active %}{% endblock %}"><a href="{% url 'places:logout' %}"><span class="glyphicon glyphicon-off" aria-hidden="true"></span>&nbsp; Logout</a></li>
+            </ul>
+              <ul class="nav navbar-nav pull-right">
+                  <li ><a href=""><span aria-hidden="true"></span><strong>&nbsp;Hi {{username}}</strong></a></li>
+            </ul>
+
+        </div>
+
+    </div>
+</nav>
+   {% block body %}
+{% endblock %}
+  <!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="jumbotron">
+      <div class="container">
+        <h1 class="display-3">Hello, Adventurer!</h1>
+        <p>Welcome to the tourism website.
+        	select the country you want to explore;
+        </p>
+
+      </div>
+    </div>
+    <div class="container">
+      <!-- Example row of columns -->
+
+      <div class="row">
+        {% for count in country %}
+        <div class="col-md-6">
+
+          <h2>{{ count.country_name }}</h2>
+          <p>Explore {{ count.country_name }}'s unique nature, wild life and exotic food. Get started on planning your holidays and learn more about yourself in this beautiful journey. Live in a city where something new awaits everyday. You are no more a stranger, we are here to guide you.</p>
+          <p><a class="btn btn-primary" href="{% url 'places:city' count.id%}" role="button">Explore &raquo;</a></p>
+
+        </div>
+        {% endfor %}
+      </div>
+
+      </div>
+
+</body>
+</html>

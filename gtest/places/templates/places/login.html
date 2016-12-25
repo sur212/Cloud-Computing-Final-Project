@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <meta charset="UTF-8">
+    <title>{% block title %}Viberr{% endblock %}</title>
+    {% load staticfiles %}
+    <link rel="shortcut icon" type="image/png" href="{%  static 'favicon.ico' %}"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Satisfy' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="{% static 'music/style.css' %}"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+</head>
+
+   <body>
+   <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+
+        <!-- Header -->
+        <div class="navbar-header">
+        <a class="navbar-brand" href="#">Guider</a>
+        </div>
+
+
+
+    </div>
+</nav>
+   <div class="jumbotron">
+      <div class="container">
+        <h1 class="display-3">Hello, Adventurer!</h1>
+        <p>Welcome to the tourism website.
+        	select the country you want to explore;
+        </p>
+
+      </div>
+    </div>
+   <h5 style="margin-left:20%">Sign In</h5>
+
+
+
+
+      <form name = "form" action = ""
+         method = "POST" >{% csrf_token %}
+
+         <div style = "max-width:470px;">
+            <center>
+               <input type = "text" style = "margin-left:20%;"
+                  placeholder = "username" name = "username" />
+            </center>
+         </div>
+
+         <br>
+
+         <div style = "max-width:470px;">
+            <center>
+               <input type = "password" style = "margin-left:20%;"
+                  placeholder = "password" name = "password" />
+            </center>
+         </div>
+
+         <br>
+
+         <div style = "max-width:470px;">
+            <center>
+
+               <button style = "border:0px; background-color:#4285F4; margin-top:1%;
+                  height:35px; width:20%;margin-left:19%;" type = "submit"
+                  value = "Login" >
+                  <strong>Login</strong>
+               </button>
+
+            </center>
+         </div>
+
+      </form>
+
+    <div>
+        <h4>New User?</h4>
+    <a href="{% url 'places:register' %}">Register here</a>
+   </div>
+
+   </body>
+</html>
