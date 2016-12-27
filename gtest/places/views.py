@@ -148,8 +148,8 @@ def book(request):
     # con = request.POST.get('book')
     # tet = request.POST.get('phone_number', False)
     # sns = boto3.client(service_name="sns",
-    #                    aws_access_key_id='AKIAID7IPA53MZAPIOWQ',
-    #                    aws_secret_access_key='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',
+    #                    aws_access_key_id='',
+    #                    aws_secret_access_key='',
     #                    region_name='us-west-2')  # , use_ssl=True)
     # ph = Guide.objects.get(guide_name=con)
     # phone = ph.guide_number
